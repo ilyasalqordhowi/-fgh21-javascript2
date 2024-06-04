@@ -1,21 +1,25 @@
 //contoh searchName
-const nama = [
+const names = [
     'Abigail', 'Alexandra', 'Alison',
      'Amanda', 'Angela', 'Bella',
      'Carol', 'Caroline', 'Carolyn', 
      'Deirdre', 'Diana', 'Elizabeth', 
      'Ella', 'Faith', 'Olivia', 'Penelope'
     ];
-const menyaringNama = nama.filter(name => nama.includes('an'));
+    function searchName(parameter,limit,callback){
+        let result = []
+        for (let i = 0; i < names.length;i++){
+            if(names[i].toLowerCase().indexOf(parameter.toLowerCase()) > -1) {
+                result.push(names[i])
+                if(result.length == limit) {
+                    break;
+                }
+            }
+        }
+        callback(result)
+    }
 
-console.log(menyaringNama); 
-
-const namaSudahTerfilter = [ 
-'Alexandra', 
-'Amanda', 
-'Diana' 
-
-];
-console.log(namaSudahTerfilter.indexOf("Alexandra"));
-console.log(namaSudahTerfilter.indexOf("Amanda")); 
-console.log(namaSudahTerfilter.indexOf("Diana"));
+    function printNama(result) {
+        console.log(result)
+    }
+    searchName('an',3,printNama)
