@@ -14,7 +14,7 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray) {
             if (container.length === 0) {
                 container[0] = dataSaatIni; 
             } else {
-                let dataYangDitambahkan = false;
+                let insertion = false;
                
                 for (let j = 0; j < container.length; j++) {
                     if (dataSaatIni< container[j]) {
@@ -23,11 +23,11 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray) {
                             container[k] = container[k - 1];
                         }
                         container[j] = dataSaatIni;  
-                        dataYangDitambahkan= true;
+                        insertion= true;
                         break;
                     }
                 }
-                if (!dataYangDitambahkan) {
+                if (!insertion) {
                     container[container.length] = dataSaatIni;
                 }
             }
